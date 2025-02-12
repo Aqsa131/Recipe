@@ -82,9 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // cards with API
-
 let allRecipes = []; 
-
 const fetchAndDisplayCards = async (url, containerSelector) => {
 	try {
 		const response = await fetch(url);
@@ -127,20 +125,19 @@ const search = () => {
 		console.log("No recipes data available yet.");
 		return;
 	}
-	let filteredData = allRecipes.filter((item) => 
+	let filteredData = allRecipes.filter((item) =>
 		(item.strMeal || item.strDrink || item.name || "").toLowerCase().includes(searchField)
 	);
-	const container = document.querySelector('.desCard'); 
+	const container = document.querySelector('.allCards');
 	if (!container) {
 		console.error("desCard container not found in DOM.");
 		return;
-	}	container.innerHTML = ""; 
-
+	}
+	container.innerHTML = "";
 	if (filteredData.length === 0) {
-		container.innerHTML = `<p>No results found</p>`; 
+		container.innerHTML = `<p>No results found</p>`;
 		return;
 	}
-
 	filteredData.forEach((item) => {
 		const card = document.createElement('div');
 		card.className = 'card';
@@ -151,34 +148,34 @@ const search = () => {
 		container.appendChild(card);
 	});
 };
-
 document.addEventListener('DOMContentLoaded', () => {
 	document.querySelector('#searchField').addEventListener('keyup', search);
 });
+
 // login password validation
 
-function passValid() {
-	let pass = document.querySelector('#inputPassword')
-	let loginPass = document.querySelector('.loginPass')
-	let passwordPattern = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[\W_]).{8,}$/;
+// function passValid() {
+// 	let pass = document.querySelector('#inputPassword')
+// 	let loginPass = document.querySelector('.loginPass')
+// 	let passwordPattern = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[\W_]).{8,}$/;
 
-	if (passwordPattern.test(pass.value)) {
-		loginPass.innerHTML = `<p style="color: green;" class="loginPass">valid Password</p>`
-	}
-	else {
-		loginPass.innerHTML = `<p style="color: red;" class="loginPass">Password must contain 8 characters</p>`
-	}
-}
-// passwordValidation SignUp
+// 	if (passwordPattern.test(pass.value)) {
+// 		loginPass.innerHTML = `<p style="color: green;" class="loginPass">valid Password</p>`
+// 	}
+// 	else {
+// 		loginPass.innerHTML = `<p style="color: red;" class="loginPass">Password must contain 8 characters</p>`
+// 	}
+// }
+// // passwordValidation SignUp
 
-function validation() {
-	let pass = document.querySelector('#exampleInputPassword1');
-	let confirmPass = document.querySelector('#exampleInputPassword');
-	let setValid = document.querySelector('.sameValidation');
+// function validation() {
+// 	let pass = document.querySelector('#exampleInputPassword1');
+// 	let confirmPass = document.querySelector('#exampleInputPassword');
+// 	let setValid = document.querySelector('.sameValidation');
 
-	if (pass.value === confirmPass.value) {
-		setValid.innerHTML = `<p style="color: green;">Password Matched</p>`;
-	} else {
-		setValid.innerHTML = `<p style="color: red;">Password not Matched</p>`;
-	}
-}
+// 	if (pass.value === confirmPass.value) {
+// 		setValid.innerHTML = `<p style="color: green;">Password Matched</p>`;
+// 	} else {
+// 		setValid.innerHTML = `<p style="color: red;">Password not Matched</p>`;
+// 	}
+// }

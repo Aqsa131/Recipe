@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="recipeStyle.css">
+    <title>Log In</title>
+</head>
+
+<body style="background-image: url(./assets/360_F_894261147_VBbTtkVDdbCC875Sa9Go9jhgLGaJjGUz.jpg);height: auto;
+    background-position: center; background-repeat: no-repeat; height: auto; max-width: 100%; background-size: cover;
+    ">
+    <div>
+        <div class="container-fluid mainContainer">
+            <div class="login">
+                <div class="logomain">
+                    <img class="loginLogo" style="margin-bottom: 42px;" src="assets/logo bgrmv.png" alt="">
+                    <h2>Login</h2>
+                </div>
+                <form>
+                    <div class="mb-3">
+                        <label style="font-size: 16px" for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label style="font-size: 16px" for="inputPassword" class="form-label">Password</label>
+                        <input onkeyup="passValid()" type="password" class="form-control" id="inputPassword">
+                        <p class="loginPass" style="color: black;">Password must contain uppercase, special character and numeric values</p>
+                    </div>
+                    <button class="loginBtn" type="submit">Submit</button> <br>
+                    <div style="display: flex; color: black"><a style="color: #fc791a;" href="signUp.html">Create new Account</a></div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>

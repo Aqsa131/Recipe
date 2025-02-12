@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes</title>
+    <!-- bootstrap link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <!-- font awsome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- animations cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- custom css -->
+    <link rel="stylesheet" href="recipeStyle.css">
+</head>
+
+<body>
+    <!-- slider -->
+    <section class="intro">
+        <div class="left">
+            <div class="animate__animated animate__backInDown">
+                <span>Discover Flavors Around the World</span>
+                <h1>Find Your Next Favorite <i style="color:#fc791a ; font-weight: 900;">Recipe</i> Here</h1>
+                <p>Unleash your inner chef with recipes crafted to perfection. Whether you're craving savory, sweet, or
+                    spicy, our collection has everything to satisfy your taste buds.</p>
+                <i class="fa-duotone fa-solid fa-chevron-down animated-icon"></i>
+            </div>
+        </div>
+        <div class="slider">
+            <ul>
+                <li
+                    style="background-image:url(https://www.kitchenaid.com/is/image/content/dam/business-unit/kitchenaid/en-us/marketing-content/site-assets/page-content/pinch-of-help/35-stand-mixer-recipes/mixer-recipes-11.jpg?fit=constrain&fmt=png-alpha&wid=2875); opacity: 0.8;">
+                    <div class="center-y">
+                        <h3>Delicious Homemade Bakes</h3>
+                        <a href="#">Explore Recipe</a>
+                    </div>
+                </li>
+                <li
+                    style="background-image:url(https://www.sargento.com/assets/Uploads/Recipe/Image/Website_Waygu_Sliders.jpg); opacity: 0.8;">
+                    <div class="center-y">
+                        <h3>Juicy Wagyu Sliders</h3>
+                        <a href="#">Explore Recipe</a>
+                    </div>
+                </li>
+                <li
+                    style="background-image:url(https://images.squarespace-cdn.com/content/v1/5f78dc08fbb09c239c71f3c3/1623343000957-V2OVFJWLCHTPS02BJY5T/TheWishDishProject_BBQ_Spam_Sliders_01_web_horizontal.jpg); opacity: 0.8;">
+                    <div class="center-y">
+                        <h3>Smoky BBQ Sliders</h3>
+                        <a href="#">Explore Recipe</a>
+                    </div>
+                </li>
+            </ul>
+            <ul>
+                <nav>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                </nav>
+            </ul>
+        </div>
+    </section>
+    <!-- search -->
+    <div id="search" class="input-group w-50 m-auto mt-5">
+        <span style="background-color:  #fc791a; color: white; height: 38px;" class="input-group-text" id="basic-addon1">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </span>
+        <input style="height: fit-content;" id="searchField" type="text" class="form-control" placeholder="Search"
+            aria-label="Search" aria-describedby="basic-addon1">
+    </div>
+
+    <!-- card section and right side section-->
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-8">
+                <h2 class="resTitle text-center">Starters</h2>
+                <div class="starterCuisine"></div>
+                <a class="moreRec d-md-flex justify-content-end " href="">Get More Recipes</a>
+                <hr class="my-5" style="width: 95%;">
+                <h2 class="resTitle text-center">Italian Dishes</h2>
+                <div class="italianCuisine"></div>
+                <a class="moreRec d-md-flex justify-content-end " href="">Get More Recipes</a>
+                <hr class="my-5" style="width: 95%;">
+                <h2 class="resTitle text-center">Desserts</h2>
+                <div class="dessertCuisine"></div>
+                <a class="moreRec d-md-flex justify-content-end " href="">Get More Recipes</a>
+                <hr class="my-5" style="width: 95%;">
+                <h2 class="resTitle text-center">Cocktails</h2>
+                <div class="drinksSection"></div>
+                <a class="moreRec d-md-flex justify-content-end " href="">Get More Recipes</a>
+                <hr class="my-5" style="width: 95%;">
+                <h2 class="resTitle text-center">Burgers</h2>
+                <div class="burgerSection"></div>
+                <a class="moreRec d-md-flex justify-content-end " href="">Get More Recipes</a>
+                <hr class="my-5" style="width: 95%;">
+                <h2 class="resTitle text-center">Dinner Ideas</h2>
+                <div class="desCard"></div>
+                <hr class="my-5" style="width: 95%;">
+                <a class="moreRec d-md-flex justify-content-end " href="">Get More Recipes</a>
+                <hr class="my-5" style="width: 95%;">
+
+            </div>
+            <div class="col-lg-4 ">
+                <div class="sec">
+                    <img class="secImg" src="assets/logo.jpg" alt="">
+                    <h3>Food Fusion</h3>
+                    <p class="mt-4 p-3">
+                        Hello! This is Team, the creator of Food Fusion. Cooking is a cherished tradition
+                        passed down in my way, deeply rooted in love and shared experiences.<br><br>
+                        My website showcases tried-and-true recipes that promise to turn your cooking into memorable
+                        moments.
+                    </p>
+                    <a href="" style="color: #fc791a;">More about us</a>
+                </div>
+                <div class="newsLetter mt-5">
+                    <div class="opac">
+                        <div class="myNewsLetter">
+                            <div class="image-wrapper">
+                                <img src="assets/newsletter.jpg" alt="Newsletter" class="background-img">
+                                <div class="overlay-text">
+                                    <h4>Join Our News Letter</h4>
+                                </div>
+                            </div>
+                            <div>
+                                <form action="">
+                                    <input class="newsField" type="text" placeholder="Name"><br>
+                                    <input class="newsField" type="text" placeholder="Email Address">
+                                </form>
+                                <button class="newsLetterBtn">SEND IT OUR WAY</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr style="max-width: 330px;" class="mt-5">
+                <div class="socialLinks text-center mt-5 my-5">
+                    <h4>Follow Us:</h4>
+                    <div class=" col links g-5 my-5">
+                        <i id="socialIcons" class="fa-brands fa-facebook"></i>
+                        <i id="socialIcons" class="fa-brands fa-instagram"></i>
+                        <i id="socialIcons" class="fa-regular fa-envelope"></i>
+                        <i id="socialIcons" class="fa-brands fa-bluesky"></i>
+                        <i id="socialIcons" class="fa-brands fa-twitter"></i>
+                        <i id="socialIcons" class="fa-brands fa-google-plus-g"></i>
+                        <i id="socialIcons" class="fa-brands fa-threads"></i>
+                        <i id="socialIcons" class="fa-brands fa-pinterest"></i>
+                    </div>
+                </div>
+                <hr style="max-width: 330px;" class="mt-5">
+                <div class="demanding my-5 ">
+                    <h4 class="text-center">Our Most Demainding Recipes:</h4>
+                    <div class="demanding">
+                        <div class="demCard mt-5">
+                            <img src="assets/demnding1.jpg" alt="">
+                            <a href=""><h4 class="mt-3">Futuccine Alfredo</h4></a>
+                        </div>
+                        <div class="demCard mt-5">
+                            <img src="assets/demandin2.jpg" alt="">
+                            <a href=""><h4 class="mt-3">Futuccine Alfredo</h4></a>
+                        </div>
+                        <div class="demCard mt-5">
+                            <img src="assets/demanding3.jpg" alt="">
+                            <a href=""><h4 class="mt-3">Futuccine Alfredo</h4></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

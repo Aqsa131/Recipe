@@ -16,37 +16,39 @@
     <div class="container-fluid mainContainer">
         <div class="login">
             <div class="logomain">
-                <img class="loginLogo" style="margin-bottom: 42px;" src="assets/logo bgrmv.png" alt="">
-                <h2>SignUp</h2>
+                <img class="loginLogo" src="assets/Untitled_design-removebg-preview.png" alt="">
+                <h2 style="margin-top: 25px;">SignUp</h2>
             </div>
-            <form>
+            <form >
                 <div class="mb-3">
-                    <label style="font-size: 16px" for="exampleInputEmail1" class="form-label">First Name</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label style="font-size: 16px" for="firstName" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="firstName" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
-                    <label style="font-size: 16px" for="exampleInputEmail1" class="form-label">Last Name</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label style="font-size: 16px" for="lastName" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
-                    <label style="font-size: 16px" for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label style="font-size: 16px" for="email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                     <label style="font-size: 16px" for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <input type="password" class="form-control" id="Password">
                 </div>
                 <div class="mb-3">
                     <label style="font-size: 16px;" for="exampleInputPassword" class="form-label">Confirm Password</label>
-                    <input oninput="validation()" type="password" class="form-control" id="exampleInputPassword">
+                    <input  type="password" class="form-control" id="exampleInputPassword">
                 </div>
                 <p class="sameValidation" style="color: black;">Password and confirm password must be same</p>
-                <button class="loginBtn" type="submit">Submit</button>
-                <div style="display: flex;"><p style="color: black;">Already have an account?</p>&nbsp;&nbsp;<a style="color: #fc791a;" href="logIn.html">Login</a></div>
+                <div class="allBtn"><button id="submit" class="loginBtn" type="button">Submit</button></div>
+                <h4 class="text-center my-3">OR</h4>
+                <div class="allBtn "><button class="google" type="button">Continue with Google?</button></div>
+                <div style="display: flex; justify-content: center;"><p style="color: black;">Already have an account?</p>&nbsp;&nbsp;<a style="color: #fc791a;" href="logIn.html">Login</a></div>
             </form>
         </div>
     </div>
-    <script src="index.js"></script>
+    <script type="module" src="form.js"></script>
 </body>
 
 </html>

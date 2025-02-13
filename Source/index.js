@@ -159,9 +159,9 @@ document.addEventListener('DOMContentLoaded', () => {
 // 	let loginPass = document.querySelector('.loginPass')
 // 	let passwordPattern = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[\W_]).{8,}$/;
 
-// 	if (passwordPattern.test(pass.value)) {
-// 		loginPass.innerHTML = `<p style="color: green;" class="loginPass">valid Password</p>`
-// 	}
+	// if (passwordPattern.test(pass.value)) {
+	// 	loginPass.innerHTML = `<p style="color: green;" class="loginPass">valid Password</p>`
+	// }
 // 	else {
 // 		loginPass.innerHTML = `<p style="color: red;" class="loginPass">Password must contain 8 characters</p>`
 // 	}

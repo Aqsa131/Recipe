@@ -527,7 +527,19 @@ a.current_dot {
 }
 .loginBtn:hover {
   background-color: #cb6217;
-  
+}
+.google{
+  background-color: #fc791a;
+  border: none;
+  width: 250px;
+  height: 50px;
+  color: white;
+  font-size: 18px;
+  font-weight: 400;
+}
+.allBtn{
+  display: flex;
+  justify-content: center;
 }
 /* dessertCard */
 .desCircle{

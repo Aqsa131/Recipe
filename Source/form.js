@@ -98,31 +98,40 @@ const logOut = () => {
 document.getElementById('logOut')?.addEventListener('click', logOut)
 
 // Authentication with google
-
+const provider = new GoogleAuthProvider();
+provider.setCustomParameters({ prompt: "select_account" });
 const google = ()=> {
-  const provider = new GoogleAuthProvider();
+
   const result = signInWithPopup(auth, provider)
   .then((result) => {
-
-    // This gives you a Google Access Token. You can use it to access the Google API.
+    window.location.href = "/Source/mainPage.html"
     const credential = GoogleAuthProvider.credentialFromResult(result);
     const token = credential.accessToken;
-    // The signed-in user info.
     const user = result.user;
-    // IdP data available using getAdditionalUserInfo(result)
     // ...
   }).catch((error) => {
-    // Handle Errors here.
     const errorCode = error.code;
     const errorMessage = error.message;
-    // The email of the user's account used.
     const email = error.customData.email;
-    // The AuthCredential type that was used.
     const credential = GoogleAuthProvider.credentialFromError(error);
     // ...
   });
 
 }
+// const provider = new GoogleAuthProvider();
+// 
+
+// const google = async () => {
+//     try {
+//         // await signOut(auth);  // 🛑 Pehle Logout
+//         // console.log("User signed out before sign-in attempt.");
+//         const result = await signInWithPopup(auth, provider); 
+//         console.log("User signed in:", result.user);
+//     } catch (error) {
+//         console.error("Google Sign-In Error:", error.message);
+//     }
+//   }
+
 document.querySelector('.google')?.addEventListener('click', google)
 
 

@@ -10,11 +10,20 @@
     <title>Log In</title>
 </head>
 
-<body style="background-image: url(./assets/360_F_894261147_VBbTtkVDdbCC875Sa9Go9jhgLGaJjGUz.jpg);height: auto;
-    background-position: center; background-repeat: no-repeat; height: auto; max-width: 100%; background-size: cover;
-    ">
-    <div>
-        <div class="container-fluid mainContainer">
+<body >
+    <div class="background-blur"
+    style="background-image: url('https://t3.ftcdn.net/jpg/07/56/46/90/360_F_756469075_DU8FRMdOsrRQQsgKzBERBEfSFUyr10Pt.jpg');
+      background-position: center; 
+      background-size: cover;
+      background-repeat: no-repeat; 
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;"></div>
+        <div class="container-fluid d-flex justify-content-center align-items-center"
+        style="min-height: 100vh; position: relative; z-index: 2;">
             <div class="login">
                 <div class="logomain">
                     <img class="loginLogo" src="assets/Untitled_design-removebg-preview.png" alt="">
@@ -38,14 +47,19 @@
                     <div class="allBtn">
                         <button class="google" type="button">Continue with Google?</button>
                     </div>
+                    <div id="forgotPasword" style="display: flex; justify-content: center ;color: black;">
+                        <button style="color: black ; border: none;background-color: transparent;" >Forgot Password</a>
+                    </div>
                     <div style="display: flex; justify-content: center ;color: black;">
-                        <a style="color: #fc791a;" href="signUp.html">Create new Account</a>
+                        <a style="color: black;" href="signUp.html">Create new Account</a>
                     </div>
                 </form>
             </div>
         </div>
-    </div>
+
     <script type="module" src="form.js"></script>
+    <script type="module" src="fireStore.js"></script>
+
 </body>
 
 </html>

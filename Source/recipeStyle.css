@@ -239,8 +239,8 @@ a.current_dot {
 
 .resTitle {
   color: #686767;
+  font-style: italic;
 }
-
 .card {
   width: 230px;
   background-color: #fff;
@@ -301,12 +301,13 @@ a.current_dot {
 
 }
 
-.italianCuisine,
-.starterCuisine,
-.dessertCuisine,
-.desCard,
+.starter,
+.lunch,
+.dessert,
 .drinksSection,
-.burgerSection {
+.pizzaSection,
+.dinner,
+.salad {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
   gap: 20px;
@@ -599,7 +600,6 @@ a.current_dot {
     color: white;
     border: none;
 }
-
 
 @media (max-width: 1024px) {
   .desCard {

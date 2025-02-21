@@ -82,16 +82,20 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // cards with API
-let allRecipes = []; 
-const fetchAndDisplayCards = async (url, containerSelector) => {
+let allRecipes = [];
+
+const fetchAndDisplayCards = async (url, containerSelector, courseType) => {
 	try {
 		const response = await fetch(url);
 		const data = await response.json();
-		const items = (data.meals || data.drinks || data.recipes || []).slice(0, 6);
-		
-		allRecipes = [...allRecipes, ...items]; 
+		const items = (data.meals || data.drinks || data.recipes || []).filter(item => item.course === courseType).slice(0, 6);
+
+		allRecipes = [...allRecipes, ...items];
+		const containerTitle = document.querySelector(containerSelector).previousElementSibling;
+		containerTitle.textContent = courseType.charAt(0).toUpperCase() + courseType.slice(1);
+
 		const container = document.querySelector(containerSelector);
-		container.innerHTML = ""; 
+		container.innerHTML = "";
 		items.forEach((item) => {
 			const card = document.createElement('div');
 			card.className = 'card';
@@ -99,24 +103,26 @@ const fetchAndDisplayCards = async (url, containerSelector) => {
 				<img class="cardimg" src="${item.strMealThumb || item.strDrinkThumb || item.image}" alt="${item.strMeal || item.strDrink || item.name}">
 				<div class="product-title mt-4"><h5>${item.strMeal || item.strDrink || item.name}</h5></div>
 			`;
+			
 			container.appendChild(card);
 		});
 	} catch (error) {
 		console.error(`Error fetching data from ${url}:`, error);
 	}
 };
+
 const apiSections = [
-	{ url: 'https://dummyjson.com/recipes', container: '.desCard' },
-	{ url: 'https://www.themealdb.com/api/json/v1/1/filter.php?a=Italian', container: '.italianCuisine' },
-	{ url: 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Dessert', container: '.dessertCuisine' },
-	{ url: 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Starter', container: '.starterCuisine' },
-	{ url: 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=Margarita', container: '.drinksSection' },
-	{ url: 'https://www.themealdb.com/api/json/v1/1/search.php?s=burger', container: '.burgerSection' },
+	{ url: 'https://web.langmingle.com/api/get-recipes', container: '.starter', course: 'appetizer' },
+	{ url: 'https://web.langmingle.com/api/get-recipes', container: '.lunch', course: 'lunch' },
+	{ url: 'https://web.langmingle.com/api/get-recipes', container: '.dinner', course: 'dinner' },
+	{ url: 'https://web.langmingle.com/api/get-recipes', container: '.drinksSection', course: 'smoothies' },
+	{ url: 'https://web.langmingle.com/api/get-recipes', container: '.pizzaSection', course: 'pizza' },
+	{ url: 'https://web.langmingle.com/api/get-recipes', container: '.salad', course: 'salad' },
 ];
 
-Promise.all(apiSections.map(section => fetchAndDisplayCards(section.url, section.container)))
-    .then(() => console.log("All recipes loaded!"))
-    .catch(err => console.error("Error loading recipes:", err));
+Promise.all(apiSections.map(section => fetchAndDisplayCards(section.url, section.container, section.course)))
+	.then(() => console.log("All recipes loaded!"))
+	.catch(err => console.error("Error loading recipes:", err));
 
 // Search filter
 const search = () => {
@@ -128,7 +134,7 @@ const search = () => {
 	let filteredData = allRecipes.filter((item) =>
 		(item.strMeal || item.strDrink || item.name || "").toLowerCase().includes(searchField)
 	);
-	const container = document.querySelector('.allCards');
+	const container = document.querySelector('.col-lg-8');
 	if (!container) {
 		console.error("desCard container not found in DOM.");
 		return;
@@ -145,37 +151,11 @@ const search = () => {
 			<img class="cardimg" src="${item.strMealThumb || item.strDrinkThumb || item.image}" alt="${item.strMeal || item.strDrink || item.name}">
 			<div class="product-title mt-4"><h5>${item.strMeal || item.strDrink || item.name}</h5></div>
 		`;
+		card.setAttribute('data-name', (item.strMeal || item.strDrink || item.name).toLowerCase());
+
 		container.appendChild(card);
 	});
 };
 document.addEventListener('DOMContentLoaded', () => {
 	document.querySelector('#searchField').addEventListener('keyup', search);
 });
-
-// login password validation
-
-// function passValid() {
-// 	let pass = document.querySelector('#inputPassword')
-// 	let loginPass = document.querySelector('.loginPass')
-// 	let passwordPattern = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[\W_]).{8,}$/;
-
-	// if (passwordPattern.test(pass.value)) {
-	// 	loginPass.innerHTML = `<p style="color: green;" class="loginPass">valid Password</p>`
-	// }
-// 	else {
-// 		loginPass.innerHTML = `<p style="color: red;" class="loginPass">Password must contain 8 characters</p>`
-// 	}
-// }
-// // passwordValidation SignUp
-
-// function validation() {
-// 	let pass = document.querySelector('#exampleInputPassword1');
-// 	let confirmPass = document.querySelector('#exampleInputPassword');
-// 	let setValid = document.querySelector('.sameValidation');
-
-// 	if (pass.value === confirmPass.value) {
-// 		setValid.innerHTML = `<p style="color: green;">Password Matched</p>`;
-// 	} else {
-// 		setValid.innerHTML = `<p style="color: red;">Password not Matched</p>`;
-// 	}
-// }

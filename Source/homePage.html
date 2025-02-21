@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>recipe website</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Swiper  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- remix cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.css"
+        integrity="sha512-6p+GTq7fjTHD/sdFPWHaFoALKeWOU9f9MPBoPnvJEWBkGS4PKVVbCpMps6IXnTiXghFbxlgDE8QRHc3MU91lJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+    <!-- cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-trail"></div>
+    <!-- main web container -->
+    <div class="container-xxl ">
+        <header>
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="assets/Untitled_design-removebg-preview.png" alt="" class="logo-img">
+                </div>
+                <nav>
+                    <ul id="menuList">
+                        <li><a href="">Home</a></li>
+                        <li><a href="">About us</a></li>
+                        <li><a href="">Blogs</a></li>
+                        <li><a href="">Testimonials</a></li>
+                        <li><a href="index.html">Recipe</a></li>
+                        <li><a href="">Contact us</a></li>
+                    </ul>
+                </nav>
+                <div class="login-sec">
+
+                    <a  href="logIn.html" class="login-sign-btn"><button id="userLogin" class="login-btn">login</button></a>
+
+                    <a href="profilePage.html" class="login-sign-btn"><button id="profile"  class="profile-btn">proflie</button></a>
+
+                </div>
+                <i class="ri-menu-3-line" id="menuIcon"></i>
+            </div>
+        </header>
+        <!--///////////// hero section ////////////////-->
+        <div class="container-xxl hero-section">
+
+            <div class="child">
+                <div class="text">
+                    <div class="h3">Welcome Fresheat</div>
+                    <p class="h1 ">enjoy our chicken burger fast food</p>
+                </div>
+
+                <div class="image">
+                    <img src="assets/360_F_894261147_VBbTtkVDdbCC875Sa9Go9jhgLGaJjGUz.jpg" id="red-chilli">
+                    <img src="./images/red_chilli-removebg-preview.png" id="red-chilli2" alt="">
+                    <img src="./images/burgur_image-removebg-preview.png" id="burger">
+                </div>
+            </div>
+            <img src="./images/single_tomato-removebg-preview.png" id="single-tomato-slice">
+            <img src="./images/single_tomato-removebg-preview.png" id="tomato">
+        </div>
+        <!-- hero section close-->
+        <!-- hero sec 2 -->
+        <div class="container-xxl hero-sec-2-pizza ">
+            <div class="child2">
+
+                <div class="image">
+                    <img src="./images/pizza_plate-removebg-preview.png" id="pizza-platter">
+                </div>
+
+                <div class="text sec2-texting">
+                    <p class=" heading fs-5">Good Food <span>Great Mood!</span></p>
+                    <p class="p">Enjoy the perfect blend of taste and freshness in every bite <br>
+                        Treat yourself today and make your mood as
+                        great as your <br> meal.Let us bring joy to your table, one delicious bite at a time</p>
+                    <button id="order-now-btn">Orderd Now</button>
+                </div>
+            </div>
+        </div>
+        <!-- hero sec 2 close-->
+
+        <!-- card-slider section ---------------// -->
+        <div class="home-card-slider-section container-xxl">
+
+            <p class="text-center" style="font-size :20px; font-weight :700; color:#fc710d;"> Best Food <i
+                    class="ri-restaurant-line"></i></p>
+            <p class="text-center" style="font-size :40px; font-weight :900; color:black;">Popular Food Items</p>
+            <!-- ///// cardss -->
+            <div class="home-main-slider-container mt-5">
+
+                <!-- swiper card slider -->
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+
+                            <div class="best-food-card card" style="width: 16rem; border-radius: 28px;">
+                                <div class="card-img-div mx-auto p-1 mt-3"
+                                    style="position: relative; width: 150px; height: 150px;">
+                                    <div class="dashed-border"></div>
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7fnLPWpxf9saI2MQxpLJFt3gJ81UHDn6dxQ&s"
+                                        class="card-img-top mx-auto"
+                                        style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Chicken Pizza</h5>
+                                    <p class="card-text text-center" style="color:#5c6574;">The Registration Fee</p>
+                                    <p class="card-text text-center fw-bold" style="color: #eb0029;">$110.2</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+
+                            <div class="best-food-card card" style="width: 16rem; border-radius: 28px;">
+                                <div class="card-img-div mx-auto p-1 mt-3"
+                                    style="position: relative; width: 150px; height: 150px;">
+                                    <div class="dashed-border"></div>
+                                    <img src="./images/annda prattha.jpg" class="card-img-top mx-auto"
+                                        style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Andda Pratha</h5>
+                                    <p class="card-text text-center" style="color:#5c6574;">The Registration Fee</p>
+                                    <p class="card-text text-center fw-bold" style="color: #eb0029;">$10.2</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="swiper-slide">
+
+
+                            <div class="best-food-card card" style="width: 16rem; border-radius: 28px;">
+                                <div class="card-img-div mx-auto p-1 mt-3"
+                                    style="position: relative; width: 150px; height: 150px;">
+                                    <div class="dashed-border"></div>
+                                    <img src="./images/chicken kabab grilled.jpg" class="card-img-top mx-auto"
+                                        style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Chicken Kabab </h5>
+                                    <p class="card-text text-center" style="color:#5c6574;">The Registration Fee</p>
+                                    <p class="card-text text-center fw-bold" style="color: #eb0029;">$290.2</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="swiper-slide">
+
+                            <div class="best-food-card card" style="width: 16rem; border-radius: 28px;">
+                                <div class="card-img-div mx-auto p-1 mt-3"
+                                    style="position: relative; width: 150px; height: 150px;">
+                                    <div class="dashed-border"></div>
+                                    <img src="./images/lazanya.jpg" class="card-img-top mx-auto"
+                                        style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Lazanya</h5>
+                                    <p class="card-text text-center" style="color:#5c6574;">The Registration Fee</p>
+                                    <p class="card-text text-center fw-bold" style="color: #eb0029;">$170.20</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="swiper-slide">
+
+                            <div class="best-food-card card" style="width: 16rem; border-radius: 28px;">
+                                <div class="card-img-div mx-auto p-1 mt-3"
+                                    style="position: relative; width: 150px; height: 150px;">
+                                    <div class="dashed-border"></div>
+                                    <img src="./images/special prattha roll.jpg" class="card-img-top mx-auto"
+                                        style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Prattha Roll</h5>
+                                    <p class="card-text text-center" style="color:#5c6574;">The Registration Fee</p>
+                                    <p class="card-text text-center fw-bold" style="color: #eb0029;">$110.2</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="swiper-slide">
+
+                            <div class="best-food-card card" style="width: 15rem; border-radius: 28px;">
+                                <div class="card-img-div mx-auto p-1 mt-3"
+                                    style="position: relative; width: 150px; height: 150px;">
+                                    <div class="dashed-border"></div>
+                                    <img src="./images/pasta.jpg" class="card-img-top mx-auto"
+                                        style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Pasta</h5>
+                                    <p class="card-text text-center" style="color:#5c6574;">The Registration Fee</p>
+                                    <p class="card-text text-center fw-bold" style="color: #eb0029;">$100</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="swiper-slide">
+
+                            <div class="best-food-card card" style="width: 15rem; border-radius: 28px;">
+                                <div class="card-img-div mx-auto p-1 mt-3"
+                                    style="position: relative; width: 150px; height: 150px;">
+                                    <div class="dashed-border"></div>
+                                    <img src="./images/burgur.jpg" class="card-img-top mx-auto"
+                                        style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Burgur</h5>
+                                    <p class="card-text text-center" style="color:#5c6574;">The Registration Fee</p>
+                                    <p class="card-text text-center fw-bold" style="color: #eb0029;">$110.2</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="swiper-slide">
+
+                            <div class="best-food-card card" style="width: 15rem; border-radius: 28px;">
+                                <div class="card-img-div mx-auto p-1 mt-3"
+                                    style="position: relative; width: 150px; height: 150px;">
+                                    <div class="dashed-border"></div>
+                                    <img src="./images/spaghetti-bolognese.webp" class="card-img-top mx-auto"
+                                        style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Spaghetti</h5>
+                                    <p class="card-text text-center" style="color:#5c6574;">The Registration Fee</p>
+                                    <p class="card-text text-center fw-bold" style="color: #eb0029;">$30.2</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="swiper-button-next swiper-nav-btn"></div>
+                    <div class="swiper-button-prev swiper-nav-btn"></div>
+                    <div class="swiper-pagination "></div>
+                </div>
+                <!-- swiper card slider close-->
+            </div>
+        </div>
+        <!-- card-slider section close ---------------// -->
+
+        <!-- offer this week -->
+        <div class="container-xxl pt-5 offer-this-week" style="background-color:#F4F1EA;">
+            <div class="offer-flex-container">
+                <div class="offer-card">
+                    <div class="offer">
+                        <img src="./images/offer_fries-removebg-preview.png" alt="Pizza"> 50% OFF
+                    </div>
+                    <p style="font-size: 19px; color: #eb0029;font-weight: bold;">On this Week</p>
+                    <h3>SPICY FRIED CHICKEN</h3>
+                    <p style="color: #fc710d;font-weight: bold;">limits Time Offer.</p>
+                    <button href="#" class="offer-ka-orderBtn" style="--clr: #eb0029">
+                        <span class="button__icon-wrapper">
+                            <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                class="button__icon-svg" width="10">
+                                <path
+                                    d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
+                                    fill="currentColor"></path>
+                            </svg>
+
+                            <svg viewBox="0 0 14 15" fill="none" width="10" xmlns="http://www.w3.org/2000/svg"
+                                class="button_icon-svg button_icon-svg--copy">
+                                <path
+                                    d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </span>
+                        Order Now
+                    </button>
+
+                </div>
+
+                <div class="offer-card">
+                    <div class="offer">
+                        <img src="./images/offer_burgur-removebg-preview.png" alt="Burger"> 50% OFF
+                    </div>
+                    <p style="font-size: 19px; color: #eb0029;font-weight: bold;">On this Week</p>
+                    <h3> Spicy Juicy Burger</h3>
+                    <p style="color: #fc710d;font-weight: bold;">limits Time Offer</p>
+                    <button href="#" class="offer-ka-orderBtn" style="--clr: #eb0029">
+                        <span class="button__icon-wrapper">
+                            <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                class="button__icon-svg" width="10">
+                                <path
+                                    d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
+                                    fill="currentColor"></path>
+                            </svg>
+
+                            <svg viewBox="0 0 14 15" fill="none" width="10" xmlns="http://www.w3.org/2000/svg"
+                                class="button_icon-svg button_icon-svg--copy">
+                                <path
+                                    d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </span>
+                        Order Now
+                    </button>
+
+                </div>
+
+                <div class="offer-card">
+                    <div class="offer">
+                        <img src="./images/offer_roll-removebg-preview.png" alt="Pasta"> 50% OFF
+                    </div>
+                    <p style="font-size: 19px; color: #eb0029;font-weight: bold;">On this Week</p>
+                    <h3>SPECIAL CHICKEN ROL</h3>
+                    <p style="color: #fc710d; font-weight: bold;">limits Time Offer</p>
+                    <!-- From Uiverse.io by Creatlydev -->
+                    <button href="#" class="offer-ka-orderBtn" style="--clr: #eb0029">
+                        <span class="button__icon-wrapper">
+                            <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                class="button__icon-svg" width="10">
+                                <path
+                                    d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
+                                    fill="currentColor"></path>
+                            </svg>
+
+                            <svg viewBox="0 0 14 15" fill="none" width="10" xmlns="http://www.w3.org/2000/svg"
+                                class="button_icon-svg button_icon-svg--copy">
+                                <path
+                                    d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </span>
+                        Order Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- offer this week closeeeeeeeeeee -->
+    <!-- logo slider -->
+    <div class="swiper-container container-xxl">
+        <div class="swiper logo-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide logo-swiper-slide"><img src="./images/logo5-removebg-preview.png" alt="Logo 5">
+                </div>
+                <div class="swiper-slide logo-swiper-slide"><img src="./images/logo1-removebg-preview.png" alt="Logo 1">
+                </div>
+                <div class="swiper-slide logo-swiper-slide"><img src="./images/logo2-removebg-preview.png" alt="Logo 2">
+                </div>
+                <div class="swiper-slide logo-swiper-slide"><img src="./images/logo3-removebg-preview (1).png"
+                        alt="Logo 3">
+                </div>
+                <div class="swiper-slide logo-swiper-slide"><img src="./images/logo4-removebg-preview.png" alt="Logo 4">
+                </div>
+                <div class="swiper-slide logo-swiper-slide"><img src="./images/logo5-removebg-preview.png" alt="Logo 5">
+                </div>
+                <div class="swiper-slide logo-swiper-slide"><img src="./images/logo7-removebg-preview.png" alt="Logo 7">
+                </div>
+                <div class="swiper-slide logo-swiper-slide"><img src="./images/logo6-removebg-preview.png" alt="Logo 6">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- logo slider close-->
+    </div>
+    <!-- offer this week closeeeeeeeeeee -->
+
+    <!-- review section -->
+    <div class="container-xxl review-container">
+        <img src="./images/pairing_tomato-removebg-preview.png" alt="" width="100px" height="100px" id="pairing-tomato">
+        <div class="review-image-box">
+            <img src="./images/young-home-beautiful-food-cooking.jpg" alt="lady-chef">
+        </div>
+
+        <div class="review-card-box">
+            <div class="swiper Review-mySwiper">
+                <p class="text-center " style="font-size :20px; font-weight :600; color:#fc710d;">Testimonials <i
+                        class="ri-restaurant-line"></i></p>
+                <p class="text-center mt-0 mb-4" style="font-size :37px; font-weight :900; color:white;">What our
+                    Clients Say
+                </p>
+
+                <div class="swiper-wrapper">
+                    <!-- Card 1 -->
+                    <div class="swiper-slide review-card">
+                        <div class="item">
+                            <div class="profile">
+                                <img src="https://images.unsplash.com/photo-1521225099409-8e1efc95321d?ixlib=rb-1.2.1&auto=format&fit=crop&h=153&q=80"
+                                    alt="">
+                                <div class="information">
+                                    <div class="stars">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <p style="font-weight: bold;">Furkan Giray</p>
+                                    <span>Desginer</span>
+                                </div>
+                            </div>
+                            <p>The chicken biryani was absolutely delicious! The rice was perfectly cooked,
+                                each grain separate and infused with rich spices.
+                                The chicken was tender, juicy, and packed with flavor. </p>
+                            <div class="icon"> <i class="fa fa-quote-right" aria-hidden="true"></i> </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="swiper-slide review-card">
+                        <div class="item">
+                            <div class="profile">
+                                <img src="https://images.pexels.com/photos/1288182/pexels-photo-1288182.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                                    alt="">
+                                <div class="information">
+                                    <div class="stars">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <p style="font-weight: bold;">Abdul Bari</p>
+                                    <span>Web Developer</span>
+                                </div>
+                            </div>
+                            <p>The chicken biryani was absolutely delicious! The rice was perfectly cooked, each grain
+                                separate and
+                                infused with rich spices.
+                                The chicken was tender, juicy, and packed with flavor. </p>
+                            <div class="icon"> <i class="fa fa-quote-right" aria-hidden="true"></i> </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="swiper-slide review-card">
+                        <div class="item">
+                            <div class="profile">
+                                <img src="https://wallpapers.com/images/hd/professional-profile-pictures-2880-x-1920-7jvygpai7v9zkg2j.jpg"
+                                    alt="">
+                                <div class="information">
+                                    <div class="stars">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+
+                                    </div>
+                                    <p style="font-weight: bold;">John</p>
+                                    <span>Web Developer</span>
+                                </div>
+                            </div>
+                            <p>A simple yet flavorful Margherita pizza! The crust was crispy on the outside and soft on
+                                the inside,
+                                with just the right amount of chewiness.
+                                The tomato sauce had a fresh, tangy taste, and the mozzarella cheese was perfectly
+                                melted.</p>
+                            <div class="icon"> <i class="fa fa-quote-right" aria-hidden="true"></i> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- text slider -->
+    <section class="container-xxl text-slider-container">
+        <div class="slider-wrapper">
+            <div class="slider">
+                <div class="slide">FAST FOOD</div>
+                <div class="slide">Chicken Burgur</div>
+                <div class="slide">Pizza</div>
+                <div class="slide">Biryani</div>
+                <div class="slide">Chicken Burgur</div>
+                <div class="slide">FAST FOOD</div>
+                <div class="slide">Chicken Burgur</div>
+                <div class="slide">FAST FOOD</div>
+                <div class="slide">Pizza</div>
+                <div class="slide">FAST FOOD</div>
+                <div class="slide">Pizza</div>
+                <div class="slide">FAST FOOD</div>
+                <div class="slide">Pizza</div>
+                <div class="slide">FAST FOOD</div>
+                <div class="slide">Biryani</div>
+                <div class="slide">Chicken Burgur</div>
+                <div class="slide">FAST FOOD</div>
+                <div class="slide">Biryani</div>
+                <div class="slide">FAST FOOD</div>
+                <div class="slide">FAST FOOD</div>
+                <div class="slide">Biryani</div>
+                <div class="slide">FAST FOOD</div>
+                <div class="slide">FAST FOOD</div>
+                <div class="slide">Biryani</div>
+                <div class="slide">Chicken Burgur</div>
+                <div class="slide">FAST FOOD</div>
+                <div class="slide">Biryani</div>
+                <div class="slide">FAST FOOD</div>
+                <div class="slide">FAST FOOD</div>
+                <div class="slide">Biryani</div>
+                <div class="slide">Chicken Burgur</div>
+                <div class="slide">FAST FOOD</div>
+                <div class="slide">Biryani</div>
+            </div>
+        </div>
+    </section>
+    <!-- review section  close -->
+
+    <!-- meet our chef -->
+    <div class="container-xxl meet-chef-container ">
+        <img src="./images/pizza-victeezy-removebg-preview.png" alt="" id="pizza-victizy">
+        <p class="text-center pt-5" style="font-size :20px; font-weight :600; color:#fc710d;text-transform: uppercase;">
+            Our Chefe <i class="ri-restaurant-line"></i></p>
+        <p class="text-center fs-2 fw-bold p-0" style="font-weight:900;font-size: 40px;">Meet Our Expert Chefe</p>
+
+        <div class="chefs-container">
+            <div class="chef-wrapper-container">
+                <div class="chefe-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl1OowXTnvZ6PAg-MeCP9UwmkVVJHg09_qjnkx5TIC_gz449-UNbynOJOkkaYbPMh6Vkk&usqp=CAU"
+                        alt="Chef 1">
+                    <h3>Chef Ayesha</h3>
+                    <p>Expert in Italian Cuisine</p>
+                </div>
+                <div class="chefe-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxGdnbES7AhObT-98sXWG6Tfslj2wx1xWJig&s"
+                        alt="Chef 2">
+                    <h3>Chef Ahmed</h3>
+                    <p>Master of French Pastries</p>
+                </div>
+                <div class="chefe-card">
+                    <img src="https://t3.ftcdn.net/jpg/06/84/89/16/360_F_684891651_PfKHyNo3VG1nNkHFbJQGFo8TGvnCL6L2.jpg"
+                        alt="Chef 3">
+                    <h3>Chef Ali</h3>
+                    <p>Specialist in Japanese Sushi</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- meet our chef close  -->
+
+    <!-- images slider //////////-->
+    <div class=" container-xxl food-images-container">
+        <div class="swiper food-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide food-swiper-slide"><img
+                        src="data:image/jpeg;base64,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"
+                        alt="Food Image 1"></div>
+                <div class="swiper-slide food-swiper-slide"><img
+                        src="https://media.istockphoto.com/id/1442417585/photo/person-getting-a-piece-of-cheesy-pepperoni-pizza.jpg?s=612x612&w=0&k=20&c=k60TjxKIOIxJpd4F4yLMVjsniB4W1BpEV4Mi_nb4uJU="
+                        alt="Food Image 2"></div>
+                <div class="swiper-slide food-swiper-slide"><img
+                        src="https://images.immediate.co.uk/production/volatile/sites/30/2022/08/Fish-Tacos-1337495.jpg"
+                        alt="Food Image 3"></div>
+                <div class="swiper-slide food-swiper-slide"><img
+                        src="https://img.freepik.com/premium-photo/front-view-tasty-vegetable-salad-with-fork-dark-surface-diet-bread-food-cuisine-colour-health-lunch-horizontal_461922-29165.jpg?w=740"
+                        alt="Food Image 4"></div>
+                <div class="swiper-slide food-swiper-slide"><img
+                        src="https://img.freepik.com/free-photo/top-view-delicious-salad-ready-be-served_23-2148538668.jpg?ga=GA1.1.1244698165.1732776280&semt=ais_authors_boost"
+                        alt="Food Image 5"></div>
+                <div class="swiper-slide food-swiper-slide"><img
+                        src="https://img.freepik.com/free-photo/delicious-salad-with-chicken-nuts-vegetables-desk-against-black-background_23-2148093148.jpg?t=st=1739608036~exp=1739611636~hmac=38475f984a392bf291f39febfcd21e46901e1ebfc13b87dc68cd08be0fe6c974&w=360"
+                        alt="Food Image 6"></div>
+                <div class="swiper-slide food-swiper-slide"><img
+                        src="https://media.istockphoto.com/id/641975492/photo/three-fruits-and-vegetables-detox-drinks.jpg?s=1024x1024&w=is&k=20&c=RBHmlO1e2yOpsAPLf6JVNCXAIE1gEq9U6wHfapNI4_k="
+                        alt="Food Image 7"></div>
+            </div>
+        </div>
+    </div>
+    <!-- images slider close  //////////-->
+
+    <!-- footer ////  -->
+    <div class="container-xxl footer">
+        <div class="d-flex justify-content-around pt-5 orange-info-box">
+            <div class="location-box">
+                <i class="ri-map-pin-2-fill"></i>
+                <h6 style="color: white;padding-top: 15px;">
+                    address <br>
+                    4648 Rocky Road Philadelphia</h6>
+            </div>
+            <div class="email-box">
+                <i class="ri-mail-fill"></i>
+                <h6 style="color: white;padding-top: 15px;">
+                    send email <br>
+                    info@exmple.com
+                </h6>
+            </div>
+            <div class="phone-box">
+                <i class="ri-phone-fill"></i>
+                <h6 style="color: white; padding-top: 15px;">
+                    call emergency <br>
+                    +88 0123 654 99
+                </h6>
+            </div>
+        </div>
+
+
+        <!-- Footer Content -->
+        <div class="custom-footer-container">
+            <div class="custom-footer-section about">
+                <h3>About Us</h3>
+                <p>We provide high-quality services to enhance your experience. Stay connected with us!</p>
+                <div class="custom-footer-section social">
+                    <div class="custom-social-icons">
+                        <a href="#" class="social-icon facebook"><i class="ri-facebook-fill"></i></a>
+                        <a href="#" class="social-icon twitter"><i class="ri-twitter-fill"></i></a>
+                        <a href="#" class="social-icon instagram"><i class="ri-instagram-fill"></i></a>
+                        <a href="#" class="social-icon linkedin"><i class="ri-linkedin-fill"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="custom-footer-section quick-links">
+                <h3>Quick Links</h3>
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Blog</a>
+            </div>
+
+            <div class="custom-footer-section menu">
+                <h3>Our Menu</h3>
+                <a href="#">Breakfast</a>
+                <a href="#">Lunch</a>
+                <a href="#">Dinner</a>
+                <a href="#">Desserts</a>
+            </div>
+
+            <div class="custom-footer-section contact">
+                <h3>Contact Us</h3>
+                <p>Email: contact@yourcompany.com</p>
+                <p>Phone: +123 456 7890</p>
+                <p>Location: 123 Street, City</p>
+            </div>
+        </div>
+        <!-- Back to Top Button -->
+        <div class="container-xxl">
+            <button id="customBackToTop"><i class="ri-arrow-up-line"></i></button>
+        </div>
+    </div>
+    </div>
+    <div class="custom-footer-bottom container-xxl">
+        &copy; 2025 YourCompany. All Rights Reserved.
+    </div>
+    <!-- footer closee////  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- main web container close -->
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!--swiper cdn  -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- gsap cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- gsap scrolltrigger cdn-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+        integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./asset/javaScript/Libraries.js"></script>
+</body>
+<script type="module" src="form.js"></script>
+
+</html>

@@ -7,8 +7,14 @@ import {
     signOut,
     GoogleAuthProvider,
     signInWithPopup,
-
+    sendPasswordResetEmail,
+    updatePassword,
+    EmailAuthProvider,
+    reauthenticateWithCredential,
+    
 } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
+
+import { getFirestore, doc, setDoc, getDoc, updateDoc, collection, query, getDocs, onSnapshot  } from 'https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js';
 
 const firebaseConfig = {
     apiKey: "AIzaSyCkdudBjJ-qrwatqI_hBEkpSToA47qSwGc",
@@ -21,14 +27,24 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
+
 // const provider = new GoogleAuthProvider();
 
 export {
     getAuth,
+    db, 
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     onAuthStateChanged,
     signOut,
     GoogleAuthProvider,
     signInWithPopup,
-}
+    sendPasswordResetEmail,
+    updatePassword,
+    EmailAuthProvider,
+    reauthenticateWithCredential,
+    doc,
+    setDoc,
+    getDoc, updateDoc, collection, query, getDocs, onSnapshot 
+};

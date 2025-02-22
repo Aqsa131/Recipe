@@ -125,37 +125,93 @@ Promise.all(apiSections.map(section => fetchAndDisplayCards(section.url, section
 	.catch(err => console.error("Error loading recipes:", err));
 
 // Search filter
-const search = () => {
-	let searchField = document.querySelector('#searchField').value.toLowerCase();
-	if (allRecipes.length === 0) {
-		console.log("No recipes data available yet.");
-		return;
-	}
-	let filteredData = allRecipes.filter((item) =>
-		(item.strMeal || item.strDrink || item.name || "").toLowerCase().includes(searchField)
-	);
-	const container = document.querySelector('.col-lg-8');
-	if (!container) {
-		console.error("desCard container not found in DOM.");
-		return;
-	}
-	container.innerHTML = "";
-	if (filteredData.length === 0) {
-		container.innerHTML = `<p>No results found</p>`;
-		return;
-	}
-	filteredData.forEach((item) => {
-		const card = document.createElement('div');
-		card.className = 'card';
-		card.innerHTML = `
-			<img class="cardimg" src="${item.strMealThumb || item.strDrinkThumb || item.image}" alt="${item.strMeal || item.strDrink || item.name}">
-			<div class="product-title mt-4"><h5>${item.strMeal || item.strDrink || item.name}</h5></div>
-		`;
-		card.setAttribute('data-name', (item.strMeal || item.strDrink || item.name).toLowerCase());
 
-		container.appendChild(card);
-	});
+const search = () => {
+    let searchField = document.querySelector('#searchField').value.toLowerCase().trim();
+    let searchType = document.querySelector('#searchType').value;
+
+    if (allRecipes.length === 0) {
+        console.log("No recipes data available yet.");
+        return;
+    }
+
+    // Pehle sab cards ko hide kar do
+    document.querySelectorAll('.card').forEach(card => {
+        card.style.display = 'none';
+    });
+
+    // Agar search field khali hai tou sab kuch wapas dikhao
+    if (searchField === '') {
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.display = 'block';
+        });
+        document.querySelectorAll('.resTitle').forEach(title => {
+            title.style.display = 'block';
+            title.textContent = title.getAttribute('data-course').charAt(0).toUpperCase() + title.getAttribute('data-course').slice(1);
+        });
+        document.querySelectorAll('.moreRec').forEach(link => {
+            link.style.display = 'block';
+        });
+        document.querySelectorAll('hr').forEach(hr => {
+            hr.style.display = 'block';
+        });
+        return;
+    }
+
+    // Search by Name
+    if (searchType === 'name') {
+        allRecipes.forEach(item => {
+            const itemName = (item.strMeal || item.strDrink || item.name || "").toLowerCase().trim();
+            console.log("Item Name:", itemName); // Debugging line
+
+            if (itemName.includes(searchField)) {
+                const category = item.course;
+                const container = document.querySelector(`[data-course="${category}"]`).nextElementSibling;
+                container.previousElementSibling.style.display = 'block';
+                container.previousElementSibling.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+
+                container.querySelectorAll('.card').forEach(card => {
+                    const cardName = card.querySelector('h5')?.textContent.toLowerCase().trim() || "";
+                    console.log("Card Name:", cardName); // Debugging line
+                    if (cardName.includes(searchField)) {
+                        card.style.display = 'block';
+                    }
+                });
+            }
+        });
+    }
+
+    // Search by Category
+    if (searchType === 'category') {
+        const filteredCategories = new Set();
+        allRecipes.forEach(item => {
+            const category = item.course.toLowerCase().trim();
+            console.log("Category:", category); // Debugging line
+
+            if (category.includes(searchField)) {
+                filteredCategories.add(category);
+
+                const container = document.querySelector(`[data-course="${category}"]`).nextElementSibling;
+                container.previousElementSibling.style.display = 'block';
+                container.previousElementSibling.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+
+                container.querySelectorAll('.card').forEach(card => {
+                    card.style.display = 'block';
+                });
+            }
+        });
+
+        // Agar koi category nahi mili tou sab kuch hide kar do
+        if (filteredCategories.size === 0) {
+            document.querySelectorAll('.resTitle').forEach(title => title.style.display = 'none');
+            document.querySelectorAll('.moreRec').forEach(link => link.style.display = 'none');
+            document.querySelectorAll('hr').forEach(hr => hr.style.display = 'none');
+        }
+    }
 };
+
+
+// Event listener to trigger search on keyup
 document.addEventListener('DOMContentLoaded', () => {
-	document.querySelector('#searchField').addEventListener('keyup', search);
+    document.querySelector('#searchField').addEventListener('keyup', search);
 });

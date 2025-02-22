@@ -1,118 +1,211 @@
-import { db, doc, setDoc, getDoc, collection, query, getDocs, onSnapshot } from "./firebase.config.js"
+import { db, doc, collection, query, onSnapshot, getAuth, onAuthStateChanged, addDoc, where, getDocs, updateDoc, deleteDoc } from "./firebase.config.js";
 
-// const db = getFirestore();
+const auth = getAuth();
+let currentUserId = null;
+let editingRecipeId = null; // Global state for editing
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const myRecipesBtn = document.getElementById('myRecipes');
+    if (myRecipesBtn) {
+        myRecipesBtn.addEventListener('click', function () {
+            window.location.href = 'myRecipes.html';
+        });
+    } else {
+        console.log('myRecipes button not found');
+    }
+});
+// Auth State Change
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        currentUserId = user.uid;
+        console.log("User ID:", currentUserId);
+        getAllRecipes();
+    } else {
+        console.log("No user is signed in.");
+    }
+});
+
+// Save Recipe
 const saveRecipe = async () => {
     const recipeName = document.getElementById('recipeName').value;
     const category = document.getElementById('category').value;
     const ingredients = document.getElementById('ingredients').value;
     const instructions = document.getElementById('instructions').value;
-    // const image = document.getElementById('imageUpload').files[0];
+
     if (recipeName && category && ingredients && instructions) {
-        alert('Recipe saved successfully!');
-        //firestore save data with setDoc
         try {
-            await setDoc(doc(db, "recipe", recipeName), {
+            await addDoc(collection(db, "recipe"), {
                 name: recipeName,
                 category: category,
                 ingredients: ingredients,
                 instructions: instructions,
-                // userId: currentUserId
+                userId: currentUserId,
+                createdAt: new Date()
             });
-            //call getDoc from readData----------->getData
-            //yahan recipe name wo name he jo id ki jaga pe save hoga, ham chahen tw isko recipe name ki jaga
-            // unique id se bhi likh saktay hen usk lye recipeName ki jaga doc.id ayega, or getDoc ki jaga 
-            // addDoc ayega jo umique id generate karayga uska faida ye hoga k recipeName ki waja
-            // se over write nahy hoga, ye recipe name wo hoga jo user recipe create katay waqt recipe ka name likhay ga
-            const docRef = doc(db, "recipe", recipeName);
-            const docSnap = await getDoc(docRef);
-
-            if (docSnap.exists()) {
-                console.log("Document data:", docSnap.data());
-            } else {
-                console.log("No such document!");
-            }
-
-            console.log('data saved to data bas');
-
-            // if(category === 'Salad'){
-            //     window.location.pathname = 'Source/salad.html'
-            // }
-            // else if(category === 'Starter'){
-            //     window.location.pathname = 'Source/starters.html'
-            // }
-            // else if(category === 'lunch'){
-            //     window.location.pathname = 'Source/lunch.html'
-            // }
-            // else if(category === 'Smoothies'){
-            //     window.location.pathname = 'Source/smoothies.html'
-            // }
-            // else if(category === 'Pizza'){
-            //     window.location.pathname = 'Source/pizzs.html'
-            // }
-            // else if(category === 'Dinner'){
-            //     window.location.pathname = 'Source/dinner.html'
-            // }
-            // else{
-            //     alert('category not found')
-            // }
+            console.log("Recipe added successfully!");
+            clearForm();
+        } catch (error) {
+            console.error("Error adding recipe:", error);
         }
-        catch (error) {
-            console.error(error);
-
-        }
-        // document.getElementById('recipeUploadBtn')
-
     } else {
         alert('Please fill in all fields.');
     }
 }
-document.getElementById('recipeUploadBtn')?.addEventListener('click', saveRecipe)
 
+// Get All Recipes
 const getAllRecipes = async () => {
-    const ref = query(collection(db, "recipe"));
-    const unsubscribe = onSnapshot(ref, (querySnapshot) => {
-        const recipe = [];
-        querySnapshot.forEach((doc) => {
-            recipe.push(doc.data());
-            console.log('recived', recipe);
-            renderCreatedRecipes(recipe)  
-        });
-        console.log("Current cities in CA: ", recipe.join(", "));
-    });
-};
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('myRecipes')?.addEventListener('click', () => {
-        // Set flag in sessionStorage
-        sessionStorage.setItem('navigateToRecipes', 'true');
-         getAllRecipes(); 
-        window.location.href = 'myRecipes.html';
-    });
-});
-
-// render Recipe cards into myRecipe page
-
-const renderCreatedRecipes = (recipes) => {
-    let recipeContainer = document.getElementById('recipe-container')
-    if(!recipeContainer){
-        console.log('no recipe container found');
+    if (!currentUserId) {
+        console.error("User is not logged in");
         return;
     }
-    recipeContainer.innerHTML = ''
+    const ref = query(collection(db, "recipe"), where("userId", "==", currentUserId));
+    onSnapshot(ref, (querySnapshot) => {
+        const recipes = [];
+        querySnapshot.forEach((doc) => {
+            recipes.push({ id: doc.id, ...doc.data() });
+        });
+        renderCreatedRecipes(recipes);
+    });
+};
+
+// Render Recipes
+const renderCreatedRecipes = (recipes) => {
+    let recipeContainer = document.getElementById('recipe-container');
+    if (!recipeContainer) {
+        console.log('No recipe container found');
+        return;
+    }
+    recipeContainer.innerHTML = '';
     recipes.forEach((recipe) => {
-        console.log('Recipe:', recipe);
-        let card = document.createElement('div')
+        let card = document.createElement('div');
         card.classList.add('col-md-4', 'mb-4');
         card.innerHTML = `
             <div class="card">
                 <div class="card-body">
-                <img class="card-img-top" src="default.jpg" alt="${recipe?.name}">
-                    <h5 class="card-title">${recipe?.name}</h5>
-                    <p class="card-text">${recipe?.ingredients}</p>
-                    <p class="card-text">${recipe?.instructions}</p>
+                    <h3 class="card-title">${recipe?.name}</h3>
+                    <p class="card-text">Ingredients: ${recipe?.ingredients}</p>
+                    <p class="card-text">Instructions: ${recipe?.instructions}</p>
+                    <button class="editRecipeBtn" data-id="${recipe.id}">Edit</button>
+                    <button class="deleteRecipeBtn" data-id="${recipe.id}">Delete</button>
                 </div>
             </div>
-        `
-        recipeContainer.appendChild(card)
-    })
-    console.log('clicked');
+        `;
+        recipeContainer.appendChild(card);
+    });
+};
+
+// Load Recipe Data for Editing
+const loadRecipeData = async (recipeId) => {
+    try {
+        const docRef = doc(db, "recipe", recipeId);
+        const docSnap = await getDocs(query(collection(db, "recipe"), where("__name__", "==", recipeId)));
+
+        if (!docSnap.empty) {
+            const recipeData = docSnap.docs[0].data();
+            document.getElementById('recipeName').value = recipeData.name;
+            document.getElementById('category').value = recipeData.category;
+            document.getElementById('ingredients').value = recipeData.ingredients;
+            document.getElementById('instructions').value = recipeData.instructions;
+
+            editingRecipeId = recipeId;
+            showModal();
+        } else {
+            console.log("No such recipe found.");
+        }
+    } catch (error) {
+        console.error("Error loading recipe data:", error);
+    }
+};
+
+// Update Recipe
+const updateRecipe = async () => {
+    if (!editingRecipeId) return;
+
+    const updatedName = document.getElementById('recipeName').value;
+    const updatedCategory = document.getElementById('category').value;
+    const updatedIngredients = document.getElementById('ingredients').value;
+    const updatedInstructions = document.getElementById('instructions').value;
+
+    try {
+        const docRef = doc(db, "recipe", editingRecipeId);
+        await updateDoc(docRef, {
+            name: updatedName,
+            category: updatedCategory,
+            ingredients: updatedIngredients,
+            instructions: updatedInstructions,
+            updatedAt: new Date()
+        });
+        console.log("Recipe updated successfully!");
+        clearForm();
+        hideModal();
+        editingRecipeId = null;
+    } catch (error) {
+        console.error("Error updating recipe:", error);
+    }
+};
+
+// Delete Recipe
+const deleteRecipe = async (recipeId) => {
+    try {
+        const docRef = doc(db, "recipe", recipeId);
+        await deleteDoc(docRef);
+        console.log("Recipe deleted with ID:", recipeId);
+    } catch (error) {
+        console.error("Error deleting recipe:", error);
+    }
 }
+
+// Event Listeners
+document.getElementById('recipeUploadBtn')?.addEventListener('click', saveRecipe);
+document.getElementById('updateRecipeBtn')?.addEventListener('click', updateRecipe);
+document.getElementById('recipe-container')?.addEventListener('click', (event) => {
+    const recipeId = event.target.getAttribute('data-id');
+    if (event.target.classList.contains('editRecipeBtn')) {
+        loadRecipeData(recipeId);
+    }
+    if (event.target.classList.contains('deleteRecipeBtn')) {
+        deleteRecipe(recipeId);
+    }
+});
+
+// Modal Functions
+const showModal = () => {
+    const modalContainer = document.getElementById('modalContainer');
+    modalContainer.style.display = 'block';
+    setTimeout(() => {
+        // Ensure form elements are accessible
+        document.getElementById('recipeName').focus();
+    }, 100);
+};
+const hideModal = () => {
+    const modalContainer = document.getElementById('modalContainer');
+    modalContainer.style.display = 'none';
+    clearForm();
+};
+
+const clearForm = () => {
+    document.getElementById('recipeName').value = '';
+    document.getElementById('category').value = '';
+    document.getElementById('ingredients').value = '';
+    document.getElementById('instructions').value = '';
+    editingRecipeId = null;
+};
+
+// DOMContentLoaded
+document.addEventListener('DOMContentLoaded', () => {
+    getAllRecipes();
+    document.querySelector('.close-btn').addEventListener('click', hideModal);
+    window.addEventListener('click', (event) => {
+        const modalContainer = document.getElementById('modalContainer');
+        if (event.target === modalContainer) {
+            hideModal();
+        }
+    });
+});
+window.getMyRecipes = () => {
+    // function getMyRecipes() {
+        console.log(222)
+        getAllRecipes();
+    }

@@ -57,7 +57,7 @@ a {
 .intro {
   position: relative;
   width: 100%;
-  height: 80vh;
+  height: 77vh;
 }
 
 .left {
@@ -118,6 +118,7 @@ span {
   position: relative;
   width: 40%;
   height: 100%;
+  background: #f2f2f2;
 }
 
 .slider ul li {
@@ -223,6 +224,17 @@ a.current_dot {
 
 
 /* cards */
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
 
 #cardSection {
   display: flex;

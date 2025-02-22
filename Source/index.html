@@ -63,17 +63,20 @@
         </div>
     </section>
     <!-- search -->
-    <div id="search" class="input-group w-50 m-auto mt-5">
-        <span style="background-color:  #fc791a; color: white; height: 38px;" class="input-group-text"
-            id="basic-addon1">
+    <div id="search" class="input-group w-75 m-auto mt-5 shadow-lg rounded-4">
+        <select id="searchType" class="form-select rounded-start" style="max-width: 150px;">
+            <option value="name">By Name</option>
+            <option value="category">By Category</option>
+        </select>
+        <input id="searchField" type="text" class="form-control" placeholder="Search...">
+        <button class="btn text-white" style="background-color: #fc791a;" type="button" id="searchBtn">
             <i class="fa-solid fa-magnifying-glass"></i>
-        </span>
-        <input style="height: fit-content;" id="searchField" type="text" class="form-control" placeholder="Search"
-            aria-label="Search" aria-describedby="basic-addon1">
+        </button>
     </div>
+    
 
     <!-- card section and right side section-->
-    <div class="container">
+    <div class="container mt-5">
         <div class="allCards row g-5">
             <div class="col-lg-8 ">
                 <h2 id="starters" class="resTitle text-center" data-course="appetizer"></h2>
@@ -88,7 +91,7 @@
                 <div class="drinksSection"></div>
                 <a class="moreRec d-md-flex justify-content-end " href="smoothies.html">Get More Recipes</a>
                 <hr class="my-5" style="width: 95%;">
-                <h2 class="resTitle text-center" data-course="smoothies"></h2>
+                <h2 class="resTitle text-center" data-course="pizza"></h2>
                 <div class="pizzaSection"></div>
                 <a class="moreRec d-md-flex justify-content-end " href="pizza.html">Get More Recipes</a>
                 <hr class="my-5" style="width: 95%;">
@@ -157,15 +160,20 @@
                             </a>
                         </div>
                         <div class="demCard mt-5">
-                            <img src="assets/demandin2.jpg" alt="">
+                        <img src="assets/1e08c41c-6522-4dbc-8bf0-cd2a74b80c97.jfif" alt="">
                             <a href="">
-                                <h4 class="mt-3">Futuccine Alfredo</h4>
+                                <h4 class="mt-3">Cheesee Roll</h4>
                             </a>
                         </div>
                         <div class="demCard mt-5">
-                            <img src="assets/demanding3.jpg" alt="">
+                            <img src="assets/des1.jpg" alt="">
                             <a href="">
-                                <h4 class="mt-3">Futuccine Alfredo</h4>
+                                <h4 class="mt-3">Saucy Smoothie</h4>
+                            </a>
+                        </div><div class="demCard mt-5">
+                            <img src="assets/bakery.png" alt="">
+                            <a href="">
+                                <h4 class="mt-3">Cheese Cake</h4>
                             </a>
                         </div>
                     </div>

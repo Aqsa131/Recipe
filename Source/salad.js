@@ -6,7 +6,8 @@ const saladsApi = async () => {
         console.log(recipe);
         let salads = recipe.filter(item=> item.course === 'salad')
         console.log(salads);
-        return salads
+        recipes = salads
+        return recipes
     } catch (error) {
         console.error(error);
 
@@ -16,10 +17,6 @@ saladsApi()
 const saladCards = (cards)=>{
     let saladCard = document.getElementById('salad-cards')    
     saladCard.innerHTML = ''
-
-    if(cards.length === 0){
-        saladCard.innerHTML = `<p>No Recipe Found</p>`
-    }
     let gridContainer = document.createElement('div');
     gridContainer.classList.add('grid-container');
 

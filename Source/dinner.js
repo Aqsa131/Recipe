@@ -6,7 +6,8 @@ const dinnerApi = async()=>{
         console.log(recipe);
         let dinnerRecipe = recipe.filter(item=> item.course === 'dinner')
         console.log(dinnerRecipe);
-        return dinnerRecipe
+        recipes = dinnerRecipe
+        return recipes
     }
     catch(error){
         console.error(error);
@@ -33,7 +34,7 @@ const dinner = (cards)=>{
                 <div class="card-body">
                     <h3 class="card-title">${product.name}</h3>
                     <p class="card-desc">${product.description || "Salads!"}</p>
-                    <button id="viewDetails" type="button" class="btn"><a href="showRecipePage.html?id=${product.id}">view recipe</a></button>
+                    <button id="viewDetails" type="button" class="btn"><a style="text-decoration: none; color: white;" href="showRecipePage.html?id=${product.id}">View Recipe</a></button>
                 </div>
             </div>
         `
@@ -47,9 +48,22 @@ dinnerApi().then((data)=>{
     }
 })
 
-// const querySnapshot = await getDocs(collection(db, "recipe"));
-// querySnapshot.forEach((doc) => {
-//     if (doc.data().category === 'Salad') {
-//         // Salad recipes ko display karein
-//     }
-// });
+
+// Search filter
+let recipes = [];
+const search = () => {
+    let searchField = document.getElementById('searchField')
+    let filterData = searchField.value.toLowerCase()
+    let setFilterData = recipes.filter((item)=>{
+        console.log(recipes);
+        return item.name.toLowerCase().includes(filterData)
+    })
+    let container = document.getElementById('noRecipe')
+    if (setFilterData.length === 0) {
+        container.innerHTML = `<p>No results found</p>`;
+    }
+    dinner(setFilterData)
+}
+document.getElementById('searchField')?.addEventListener('keyup', search)
+
+

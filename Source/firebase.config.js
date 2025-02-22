@@ -14,7 +14,7 @@ import {
     
 } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
 
-import { getFirestore, doc, setDoc, getDoc, updateDoc, collection, query, getDocs, onSnapshot  } from 'https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js';
+import { getFirestore, doc, setDoc, getDoc, updateDoc, collection, query, getDocs, onSnapshot, addDoc, where,deleteDoc } from 'https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js';
 
 const firebaseConfig = {
     apiKey: "AIzaSyCkdudBjJ-qrwatqI_hBEkpSToA47qSwGc",
@@ -46,5 +46,5 @@ export {
     reauthenticateWithCredential,
     doc,
     setDoc,
-    getDoc, updateDoc, collection, query, getDocs, onSnapshot 
+    getDoc, updateDoc, collection, query, getDocs, onSnapshot, addDoc, where,deleteDoc
 };

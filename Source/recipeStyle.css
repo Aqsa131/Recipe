@@ -350,6 +350,19 @@ a.current_dot {
   padding-left: 10px;
   padding-bottom: 5px;
 }
+.heart-icon i {
+  color: transparent;
+  font-size: 24px;
+  cursor: pointer;
+  -webkit-text-stroke: 1px black;
+  transition: color 0.3s;
+}
+
+.heart-icon.active i {
+  color: red;
+  -webkit-text-stroke: 0;
+}
+
 
 /* Subtle fade-in effect on page load */
 @keyframes subtleFadeIn {

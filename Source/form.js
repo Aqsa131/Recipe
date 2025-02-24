@@ -97,7 +97,6 @@ onAuthStateChanged(auth, async (user) => {
   let userLoginElement = document.getElementById('userLogin');
 
   if (user) {
-    // Remove login button if No User is Logged In
     if (userLoginElement) {
       userLoginElement.parentNode.remove();
       let loginSec = document.querySelector('.login-sec')
@@ -127,9 +126,6 @@ onAuthStateChanged(auth, async (user) => {
     }
   }
 });
-
-// logOut/signout
-
 
 // Authentication with google
 const provider = new GoogleAuthProvider();
@@ -217,6 +213,3 @@ const updateProfileName = async () => {
 }
 
 document.getElementById('userNameupd')?.addEventListener('click', updateProfileName)
-
-
-// recipe data into data base

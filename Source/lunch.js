@@ -1,3 +1,5 @@
+import { collection, addDoc, getAuth, db } from "./firebase.config.js"
+
 const cusine = async () => {
     try {
         let getCusine = await fetch('https://web.langmingle.com/api/get-recipes');
@@ -24,16 +26,42 @@ const createCard = (cards) => {
         let newCusineCard = document.createElement('div');
         newCusineCard.classList.add('newCusineCard');
         newCusineCard.innerHTML = `
-            <div class="card">
-                <img class="card-img" src="${product.image}" alt="${product.name}">
-                <div class="card-body">
-                    <h3 class="card-title">${product.name}</h3>
-                    <p class="card-desc">${product.description || "Delicious Lunch!"}</p>
-                    <button id="viewDetails" type="button" class="btn"><a style="text-decoration: none; color: white;" href="showRecipePage.html?id=${product.id}">View Recipe</a></button>
-
-                </div>
+        <div class="card position-relative">
+            <img class="card-img img-fluid" src="${product.image}" alt="${product.name}">
+            <span class="heart-icon position-absolute top-0 end-0 m-2" 
+                data-recipe-id="${product.id}" data-user-id="CURRENT_USER_ID">
+                <i class="bi bi-heart"></i>
+            </span>
+            <div class="card-body">
+                <h3 class="card-title">${product.name}</h3>
+                <p class="card-desc">${product.description || "Salads!"}</p>
+                <button id="viewDetails" type="button" class="btn">
+                    <a style="text-decoration: none; color: white;" href="showRecipePage.html?id=${product.id}">View Recipe</a>
+                </button>
             </div>
+        </div>
         `;
+        newCusineCard.querySelector('.heart-icon').addEventListener('click', function () {
+            this.classList.toggle('active');
+        
+            const auth = getAuth();
+            const user = auth.currentUser;
+            if (user) {
+                const userId = user.uid;
+                
+                // Get the complete recipe object
+                const recipeToSave = {
+                    id: product.id,
+                    name: product.name,
+                    image: product.image,
+                    description: product.description
+                };
+                
+                addToWishlist(userId, recipeToSave);
+            } else {
+                console.log("User not logged in");
+            }
+        });
         gridContainer.appendChild(newCusineCard);
     });
 
@@ -45,6 +73,19 @@ cusine().then((data) => {
         createCard(data);
     }
 });
+
+// Function to Add Recipe to Wishlist
+const addToWishlist = (userId, recipeId) => {
+    const wishlistRef = collection(db, 'wishList');
+    addDoc(wishlistRef, {
+        recipId: recipeId,
+        userId: userId
+    }).then(() => {
+        console.log("Recipe added to wishlist!");
+    }).catch(error => {
+        console.error('Error adding to wishlist:', error);
+    });
+}
 
 // Search filter
 let recipes = [];

@@ -34,9 +34,19 @@
         }
     </style>
 </head>
+
 <body>
     <div class="update-card">
         <h2 id="welcomeUser">Welcome</h2>
+        <!-- Profile Image Upload Section in Modal -->
+        <div class="mb-3">
+            <input type="file" id="image">
+
+            <!-- <label for="profileImageUpload" class="form-label">Profile Image</label> -->
+            <img id="profileImage" src="" alt="Image Preview" class="mt-2" style="max-width: 100%; max-height: 200px;">
+            <br>
+            <button id="uploadImage">Upload</button>
+        </div>
         <form>
             <div class="mb-3">
                 <label for="userName" class="form-label">User Name</label>
@@ -50,12 +60,9 @@
                 <label for="newPassword" class="form-label">New Password</label>
                 <input type="password" class="form-control" id="newPassword" placeholder="Enter new password" required>
             </div>
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Remember me</label>
-            </div>
-            <button id="updatePass" type="button" class="btn btn-primary w-100">Update Password</button>
-            <button id="updateUserName" type="button" class="btn btn-primary w-100">Update User Name</button>
+            <button id="updatePass" type="button" class="btn btn-primary w-100">Update Password</button><br><br>
+            <button id="updateUserName" type="button" class="btn btn-primary w-100">Update User Name</button><br>
+
 
         </form>
     </div>
@@ -63,6 +70,8 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script type="module" src="setting.js"></script>
+    <script type="module" src="cloudinar.js"></script>
+
 </body>
 
 </html>

@@ -3,7 +3,6 @@ import { db, doc, updateDoc, onAuthStateChanged, getAuth, updatePassword, getDoc
 
 const auth = getAuth();
 
-// Check if user is logged in
 onAuthStateChanged(auth, (user) => {
     if (user) {
         console.log('User signed in:', user.uid);
@@ -12,10 +11,7 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
-// Update User Name in Firestore
-let currentUserID = null; // Store logged-in user ID globally
-
-// Check if user is logged in
+let currentUserID = null; 
 onAuthStateChanged(auth, async (user) => {
     if (user) {
         currentUserID = user.uid;
@@ -43,9 +39,7 @@ const updateUserName = async () => {
         alert('Please enter a new username!');
         return;
     }
-
     const userRef = doc(db, "users", currentUserID);
-
     try {
         await updateDoc(userRef, {
             username: userName
@@ -63,7 +57,6 @@ const updateUserName = async () => {
 // Event Listener for Update Button
 document.getElementById('updateUserName')?.addEventListener('click', updateUserName);
 
-
 // Update Password in Firebase Authentication
 const updateUserPassword = async () => {
     let oldPass = document.getElementById('oldPassword').value;
@@ -73,8 +66,6 @@ const updateUserPassword = async () => {
         alert('Please enter both old and new passwords!');
         return;
     }
-
-    // Confirm if user is logged in
     const user = auth.currentUser;
     if (user) {
         try {
@@ -92,4 +83,7 @@ const updateUserPassword = async () => {
 // Event Listeners
 document.getElementById('updateUserName')?.addEventListener('click', updateUserName);
 document.getElementById('updatePass')?.addEventListener('click', updateUserPassword);
+
+
+
 

@@ -100,9 +100,22 @@ const fetchAndDisplayCards = async (url, containerSelector, courseType) => {
 			const card = document.createElement('div');
 			card.className = 'card';
 			card.innerHTML = `
-				<img class="cardimg" src="${item.strMealThumb || item.strDrinkThumb || item.image}" alt="${item.strMeal || item.strDrink || item.name}">
-				<div class="product-title mt-4"><h5>${item.strMeal || item.strDrink || item.name}</h5></div>
-			`;
+				<div class="position-relative">
+					<img class="cardimg img-fluid" src="${item.strMealThumb || item.strDrinkThumb || item.image}" alt="${item.strMeal || item.strDrink || item.name}">
+					<span class="heart-icon position-absolute top-0 end-0 m-2">
+						<i class="bi bi-heart"></i>
+					</span>
+				</div>
+				<div class="product-title mt-4">
+					<h5>${item.strMeal || item.strDrink || item.name}</h5>
+				</div>
+`;
+
+card.querySelector('.heart-icon').addEventListener('click', function() {
+    this.classList.toggle('active');
+});
+
+
 			
 			container.appendChild(card);
 		});

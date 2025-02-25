@@ -206,3 +206,12 @@ p {
         width: 100%;
     }
 }
+.heart-icon {
+    cursor: pointer;
+    color: #ff6b6b;  /* Light red color */
+    font-size: 1.5rem;
+  }
+  .heart-icon.active i {
+    color: red;
+  }
+  

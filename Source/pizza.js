@@ -22,8 +22,7 @@ const pizzaCards = (cards) => {
         newCard.innerHTML = `
                 <div class="card position-relative">
                     <img class="card-img img-fluid" src="${product.image}" alt="${product.name}">
-                    <span class="heart-icon position-absolute top-0 end-0 m-2" 
-                        data-recipe-id="${product.id}" data-user-id="CURRENT_USER_ID">
+                    <span class="heart-icon position-absolute top-0 end-0 m-2" data-recipe-id="...">
                         <i class="bi bi-heart"></i>
                     </span>
                     <div class="card-body">
